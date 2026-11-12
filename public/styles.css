@@ -1,0 +1,298 @@
+/* Status 200 Ticketing Platform: shared styles */
+
+:root {
+  --bg: #f4f5f7;
+  --surface: #ffffff;
+  --text: #1d2433;
+  --muted: #5f6b7d;
+  --border: #dde1e8;
+  --primary: #1f5eff;
+  --primary-dark: #1747c4;
+  --danger: #c62e2e;
+  --success-bg: #e8f6ee;
+  --success-text: #1b6b3a;
+  --error-bg: #fdecec;
+  --error-text: #9b1c1c;
+  --info-bg: #eaf1ff;
+  --info-text: #1d3f8f;
+  --radius: 10px;
+  --shadow: 0 1px 2px rgba(16, 24, 40, 0.06), 0 1px 3px rgba(16, 24, 40, 0.08);
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
+  color: var(--text);
+  background: var(--bg);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  line-height: 1.5;
+}
+
+h1,
+h2,
+h3 {
+  line-height: 1.25;
+  margin: 0 0 0.75rem;
+}
+
+h2 {
+  font-size: 1.2rem;
+}
+
+h3 {
+  font-size: 1.05rem;
+}
+
+a {
+  color: var(--primary);
+}
+
+/* ---------- Buttons ---------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: 0.55rem 1rem;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  font: inherit;
+  font-weight: 600;
+  font-size: 0.92rem;
+  cursor: pointer;
+  background: none;
+  color: var(--text);
+}
+
+.btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.btn-primary {
+  background: var(--primary);
+  color: #fff;
+}
+
+.btn-primary:hover:not(:disabled) {
+  background: var(--primary-dark);
+}
+
+.btn-ghost {
+  border-color: var(--border);
+  background: var(--surface);
+}
+
+.btn-ghost:hover:not(:disabled) {
+  border-color: var(--muted);
+}
+
+.btn-block {
+  width: 100%;
+}
+
+/* ---------- Forms ---------- */
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  margin-bottom: 0.9rem;
+  flex: 1;
+}
+
+label {
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+input,
+textarea,
+select {
+  font: inherit;
+  padding: 0.55rem 0.7rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface);
+  color: var(--text);
+}
+
+textarea {
+  resize: vertical;
+}
+
+input:focus,
+textarea:focus,
+select:focus,
+.btn:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 1px;
+}
+
+[aria-invalid='true'] {
+  border-color: var(--danger);
+  background: #fff8f8;
+}
+
+.field-error {
+  color: var(--danger);
+  font-size: 0.82rem;
+  min-height: 0;
+}
+
+.field-error:empty {
+  display: none;
+}
+
+/* ---------- Alerts / states ---------- */
+.alert {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 0.65rem 0.9rem;
+  border-radius: 8px;
+  font-size: 0.92rem;
+  margin-bottom: 1rem;
+}
+
+.alert[hidden] {
+  display: none;
+}
+
+.alert-success {
+  background: var(--success-bg);
+  color: var(--success-text);
+}
+
+.alert-error {
+  background: var(--error-bg);
+  color: var(--error-text);
+}
+
+.alert-info {
+  background: var(--info-bg);
+  color: var(--info-text);
+}
+
+.alert-close {
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  line-height: 1;
+  cursor: pointer;
+  color: inherit;
+}
+
+/* ---------- Brand + card ---------- */
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 700;
+  color: var(--text);
+  text-decoration: none;
+}
+
+.brand-mark {
+  background: var(--primary);
+  color: #fff;
+  font-size: 0.75rem;
+  padding: 0.2rem 0.4rem;
+  border-radius: 6px;
+}
+
+.panel {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 1.75rem;
+}
+
+/* ---------- Auth pages ---------- */
+.auth {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 1.5rem;
+}
+
+.auth-card {
+  width: 100%;
+  max-width: 400px;
+}
+
+.auth-card .brand {
+  margin-bottom: 1.25rem;
+}
+
+@media (max-width: 480px) {
+  .panel {
+    padding: 1.25rem;
+  }
+}
+
+.auth-card h1 {
+  font-size: 1.4rem;
+}
+
+/* Sign in / Create account tabs */
+.tabs {
+  display: flex;
+  gap: 0.25rem;
+  padding: 0.25rem;
+  margin-bottom: 1.25rem;
+  background: var(--bg);
+  border-radius: 10px;
+}
+
+.tab {
+  flex: 1;
+  padding: 0.5rem;
+  border: none;
+  border-radius: 8px;
+  background: none;
+  font: inherit;
+  font-weight: 600;
+  color: var(--muted);
+  cursor: pointer;
+}
+
+.tab[aria-selected='true'] {
+  background: var(--surface);
+  color: var(--text);
+  box-shadow: var(--shadow);
+}
+
+.tab:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 1px;
+}
+
+.field-hint {
+  color: var(--muted);
+  font-size: 0.82rem;
+}
+
+/* Hide the hint while the field shows an error */
+[aria-invalid='true'] ~ .field-hint {
+  display: none;
+}
+
+.actions {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+a.btn {
+  text-decoration: none;
+}
+
+[hidden] {
+  display: none !important;
+}

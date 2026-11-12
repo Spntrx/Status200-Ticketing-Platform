@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sign in · Status 200 Tickets</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="app.js" defer></script>
+</head>
+<body data-page="auth">
+  <main class="auth">
+    <section class="panel auth-card">
+      <span class="brand"><span class="brand-mark">200</span> Status 200 Tickets</span>
+
+      <!-- Shown instead of the forms when a valid token is already stored -->
+      <div id="signed-in" hidden>
+        <h1>You're signed in</h1>
+        <p>Signed in as <strong id="signed-in-name"></strong> (<span id="signed-in-email"></span>).</p>
+        <div class="actions">
+          <a href="dashboard.html" class="btn btn-primary">Go to dashboard</a>
+          <button id="sign-out" type="button" class="btn btn-ghost">Sign out</button>
+        </div>
+      </div>
+
+      <div id="auth-forms">
+        <div class="tabs" role="tablist" aria-label="Sign in or create an account">
+          <button id="tab-login" type="button" role="tab" class="tab" aria-selected="true" aria-controls="login-form">Sign in</button>
+          <button id="tab-register" type="button" role="tab" class="tab" aria-selected="false" aria-controls="register-form">Create account</button>
+        </div>
+
+        <div id="form-alert" class="alert" role="status" aria-live="polite" hidden></div>
+
+        <!-- Login form: POST /api/auth/login -->
+        <form id="login-form" role="tabpanel" aria-labelledby="tab-login" novalidate>
+          <div class="field">
+            <label for="login-email">Email</label>
+            <input id="login-email" name="email" type="email" autocomplete="email" />
+            <small class="field-error" data-error-for="email"></small>
+          </div>
+          <div class="field">
+            <label for="login-password">Password</label>
+            <input id="login-password" name="password" type="password" autocomplete="current-password" />
+            <small class="field-error" data-error-for="password"></small>
+          </div>
+          <button type="submit" class="btn btn-primary btn-block">Sign in</button>
+        </form>
+
+        <!-- Registration form: POST /api/auth/register -->
+        <form id="register-form" role="tabpanel" aria-labelledby="tab-register" novalidate hidden>
+          <div class="field">
+            <label for="register-name">Full name</label>
+            <input id="register-name" name="name" type="text" autocomplete="name" />
+            <small class="field-error" data-error-for="name"></small>
+          </div>
+          <div class="field">
+            <label for="register-email">Email</label>
+            <input id="register-email" name="email" type="email" autocomplete="email" />
+            <small class="field-error" data-error-for="email"></small>
+          </div>
+          <div class="field">
+            <label for="register-password">Password</label>
+            <input id="register-password" name="password" type="password" autocomplete="new-password" />
+            <small class="field-hint">At least 8 characters.</small>
+            <small class="field-error" data-error-for="password"></small>
+          </div>
+          <div class="field">
+            <label for="register-confirm">Confirm password</label>
+            <input id="register-confirm" name="confirm" type="password" autocomplete="new-password" />
+            <small class="field-error" data-error-for="confirm"></small>
+          </div>
+          <button type="submit" class="btn btn-primary btn-block">Create account</button>
+        </form>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
