@@ -5,7 +5,7 @@ const User = require('../models/User');
 // Ticket model undefined. Will add later 
 const MONGO_URI = process.env.MONGO_URI || process.env.MONGODB_URI;
 
-// 1 admin for now
+// 1 admin for now. Password will be moved to env later on. Raw password for now
 const admin = {
   name: 'Admin',
   email: 'admin@example.com',
