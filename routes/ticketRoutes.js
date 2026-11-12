@@ -1,8 +1,24 @@
-const express = require('express');
+const express = require("express");
+
+const {
+  createTicket,
+  getTickets,
+  updateTicket,
+  deleteTicket,
+  getTicketById
+} = require("../controllers/ticketController");
+
+const { protect } = require("../middleware/authMiddleware");
+
 const router = express.Router();
 
-router.get('/', (req, res) => {
-  res.status(200).json({ message: 'Route scaffold ready' });
-});
+// Protect all ticket routes
+router.use(protect);
+
+router.post("/", createTicket);
+router.get("/", getTickets);
+router.get("/:id", getTicketById);
+router.put("/:id", updateTicket);
+router.delete("/:id", deleteTicket);
 
 module.exports = router;
